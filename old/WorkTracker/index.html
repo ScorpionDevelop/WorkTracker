@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <!--
+    Die Reihenfolge im <head> ist sinnvollerweise foldende:
+      1. meta
+      2. link
+      3. script
+      4. title
+      -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Verknüpfung der CSS-Datei in die HTML -->
+
+    <link rel="stylesheet" href="style_work-tracker.css" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- EIGENES ICON -->
+    <link rel="icon" type="image/x-icon" href="img/scorp_dev_logo.jpg" />
+
+    <!-- Verknüpfung der Javascript-Datei in die HTML Seite. -->
+    <!-- Das können auch mehrere sein z. B. auch extern oder Links für z. B. Firebase etc -->
+    <script src="app.js" defer></script>
+
+    <title>Work Tracker</title>
+  </head>
+  <body>
+    <!-- Sichtbarer Bereich auf der Seite -->
+
+    <!-- SIDEBAR -->
+
+    <!-- Die versteckte Checkbox steuert den Zustand -->
+    <input type="checkbox" id="sidebar-toggle" />
+
+    <!-- Die Sidebar selbst -->
+    <div class="sidebar">
+      <!-- Schließen-Button innerhalb der Sidebar -->
+      <label for="sidebar-toggle" class="close-btn">✕</label>
+      <nav>
+        <h2>Arbeitslisten</h2>
+        <div class="items-center">
+          <button id="open_dialog_add_new_list" type="button" class="button-custom1">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="21px"
+              viewBox="0 -960 960 960"
+              width="29px"
+              fill="#212529"
+            >
+              <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
+            </svg>
+            Liste hinzufügen
+          </button>
+        </div>
+        <div class="items-center">
+          <button type="button" class="button-custom1" id="deleteListBt">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#212529"
+            >
+              <path d="M200-440v-80h560v80H200Z" />
+            </svg>
+            Liste löschen
+          </button>
+        </div>
+      </nav>
+    </div>
+
+    <div class="main" id="main">
+      <div class="header">
+        <!-- Der Button zum Öffnen (Hamburger-Icon oder Text) -->
+        <label for="sidebar-toggle" class="menue-btn">☰ Menü</label>
+
+        <h1>Work Tracker</h1>
+        <img class="header-logo" src="img/scorp_dev_logo.jpg" alt="Logo ScorpionDevelopment" />
+      </div>
+
+      <!-- Record Area -->
+      <form class="record">
+        <h2>Tätigkeit erfassen</h2>
+        <!-- Input list of activities -->
+        <div class="card-1">
+          <label for="area-of-activity" class="block mg-bot-8">Liste</label>
+          <select id="area-of-activity" name="area-of-activity" class="block w-full">
+            <!-- <option value="Liste 1">Eiberg</option> -->
+          </select>
+        </div>
+
+        <!-- Input date, pre-set via JS with current date -->
+        <div class="card-1">
+          <label class="block mg-bot-8">Datum</label>
+          <input class="block" type="date" id="date-of-activity" required />
+        </div>
+
+        <!-- Input aktivity -->
+        <div class="card-1">
+          <label class="block mg-bot-8">Tätigkeit</label>
+          <textarea class="" id="activity" placeholder="Was hast du gearbeitet?"></textarea>
+        </div>
+
+        <!-- Input time -->
+        <div class="card-1 disp-flex">
+          <div class="flex1">
+            <!-- Input beginn aktivitiy -->
+            <label class="block mg-bot-8">Beginn</label>
+            <input class="block" type="time" id="start-time" />
+          </div>
+          <!-- Input end aktivitiy -->
+          <div class="flex1">
+            <label class="block width-auto mg-bot-8">Ende</label>
+            <input class="block" type="time" id="end-time" />
+          </div>
+        </div>
+
+        <!--  Input break of activity -->
+        <div class="card-1">
+          <label class="block mg-bot-8">Pause</label>
+          <input class="block" type="number" id="break-time" value="0" />
+        </div>
+        <!-- Input duration of activity -->
+        <div class="card-1">
+          <label class="block mg-bot-8">Dauer</label>
+          <input class="block" type="number" id="duration" value="0" />
+        </div>
+        <!-- Input cost per hour of activity -->
+        <div class="card-1">
+          <label class="block mg-bot-8">Kosten €/STD</label>
+          <input class="block" type="number" value="15" />
+        </div>
+        <div class="items-center">
+          <button type="button" class="button-custom1" id="save-activity">Eintrag speichern</button>
+        </div>
+      </form>
+
+      <!-- <div class="display">
+        <h2>Erfasste Tätigkeiten</h2>
+        <div class="overflow-x-auto m-w-full">
+          <table>
+            <thead class="sticky-5">
+              <tr>
+                <th>Datum <br />Tätigkeit</th>
+                <th>Zeit</th>
+                <th>Dauer</th>
+                <th>Betrag</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="activity-table"> -->
+      <!-- Ab hier per JS einfügen -->
+      <!-- Start Eintrag -->
+
+      <!-- Ende Eintrag -->
+      <!-- <tr>
+                <td>
+                  <div class="mg-bot-4">03.08.26</div>
+                  <div class="text-secondary">Programmieren</div>
+                </td>
+                <td>
+                  <div class="mg-bot-4">07:00 - 12:00</div>
+                  <div class="text-secondary">Pause: 15 Min.</div>
+                </td>
+                <td>4,75 Std.</td>
+                <td>71,25€</td>
+                <td>
+                  <div class="td-del">
+                    <button type="button" class="icon-button edit-button">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="24px"
+                        viewBox="0 -960 960 960"
+                        width="24px"
+                        fill=""
+                      >
+                        <path
+                          d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z"
+                        ></path>
+                      </svg>
+                    </button>
+                  </div>
+                </td>
+
+                <td>
+                  <div class="td-del">
+                    <button type="button" class="icon-button delete-button">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="24px"
+                        viewBox="0 -960 960 960"
+                        width="24px"
+                        fill=""
+                      >
+                        <path
+                          d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"
+                        ></path>
+                      </svg>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td>Gesamt</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div> -->
+
+      <!-- Footer -->
+      <div class="footer">
+        <div>
+          <a href="#"
+            ><img class="footer-img" src="img/scorp_dev_logo.jpg" alt="Logo ScorpionDevelopment"
+          /></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Eingabedialog für neue Liste -->
+
+    <dialog id="dialog-add-list-item">
+      <div class="card-2">
+        <form action="" method="dialog">
+          <label class="block mg-bot-8" for="name_new_activity-area">Name der neuen Liste</label>
+          <input
+            class="block mg-bot-8"
+            name="name_new_activity-area"
+            type="text"
+            placeholder="Namen eingeben"
+            id="name_new_activity-area"
+          />
+          <button type="button" id="close_dialog_add_new_list" class="button-custom1">
+            Neue Liste hinzufügen
+          </button>
+          <button type="button" id="close_dialog_add_list_item" class="button-custom1">
+            Abbrechen
+          </button>
+        </form>
+      </div>
+    </dialog>
+
+    <!-- Warnung wenn Eintrag beim hinzufügen einer neuen Liste vergessen wurde -->
+    <dialog id="warning">
+      <div class="card-2">
+        <div class="mg-bot-8">Es ist kein Name eingegeben worden!!!</div>
+        <button type="button" id="close_dialog_warning" class="block button-custom1">Zurück</button>
+        <button type="button" id="close_dialog_warning_end" class="button-custom1">
+          Abbrechen
+        </button>
+      </div>
+    </dialog>
+
+    <!-- Dialog zum  Löschen von Listen -->
+    <dialog id="deleteListDialog">
+      <ul id="deleteList"></ul>
+      <button type="button" id="close_dialog_delete_list" class="button-custom1">Schließen</button>
+    </dialog>
+  </body>
+</html>
