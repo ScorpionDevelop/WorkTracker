@@ -71,7 +71,9 @@ body {
 
 /* 1. Verstecke die eigentliche Checkbox komplett */
 #sidebar-toggle {
-  display: none;
+  /* display: none; */
+  height: 18px;
+  width: 30px;
 }
 
 /* 3. Styling für die Sidebar */
@@ -109,6 +111,7 @@ body {
 /* 4. DIE MAGIE: Wenn Checkbox aktiv (checked), schiebe Sidebar ins Bild */
 #sidebar-toggle:checked ~ .sidebar {
   left: 16px; /* Verschiebt die Sidebar auf die sichtbare Position */
+  left: 30px; /* Verschiebt die Sidebar auf die sichtbare Position */
 }
 
 .sidebar > nav > h2 {

@@ -11,9 +11,7 @@ const listAreaOfActivity = document.getElementById("area-of-activity"); // hier 
 const addAreaOfActivityDialog = document.getElementById("dialog-add-list-item");
 const openDialogAddNewActivityAreaButton = document.getElementById("open_dialog_add_new_list");
 const closeDialogAddNewActivityAreaButton = document.getElementById("close_dialog_add_new_list");
-const closeDialogAddNewActivityAreaWithoutButton = document.getElementById(
-  "close_dialog_add_list_item",
-);
+const closeDialogAddNewActivityAreaWithoutButton = document.getElementById("close_dialog_add_list_item");
 const closeDialogDeleteListButton = document.getElementById("close_dialog_delete_list");
 const mainArea = document.getElementById("main");
 const saveActivityButton = document.getElementById("save-activity");
@@ -25,6 +23,7 @@ function setCurrentDate() {
   const heute = new Date().toISOString().split("T")[0];
   dateOfActivity.value = heute;
 }
+
 setCurrentDate();
 
 //*************************************************
@@ -314,6 +313,7 @@ closeDialogAddNewActivityAreaWithoutButton.addEventListener("click", () => {
 // Schließen des Dialogfenster
 function addListItemModalClose() {
   addAreaOfActivityDialog.close();
+  closeSidebar();
 }
 
 //Hinzufügen einer neuen Liste
@@ -449,3 +449,15 @@ function deleteListItem(listItemIndex) {
 //*************************************************
 // Tätigkeiten laden
 //*************************************************
+
+const sidebarToggleCheckbox = document.getElementById("sidebar-toggle");
+
+function openSidebar() {
+  sidebarToggleCheckbox.checked = true;
+}
+
+function closeSidebar() {
+  sidebarToggleCheckbox.checked = false;
+}
+
+const body = document.get;
